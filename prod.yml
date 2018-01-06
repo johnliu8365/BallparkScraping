@@ -1,0 +1,6 @@
+version: "3.0"
+services:
+  ballparkscraping:
+    image: johnliu8365/BallparkScraping
+    ports:
+      - "5000:5000"
