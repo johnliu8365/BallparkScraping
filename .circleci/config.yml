@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /ballparkscraping
+    working_directory: /go/src/github.com/johnliu8365/BallparkScraping
     docker:
       - image: circleci/golang:1.8
     steps:
