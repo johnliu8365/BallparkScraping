@@ -3,14 +3,19 @@ jobs:
   build:
     working_directory: /go/src/github.com/johnliu8365/BallparkScraping
     docker:
-      - image: circleci/golang:1.8
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
+      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: |
+            pip install docker-compose==1.15.0
       - run:
           name: Run tests
           command: |
-            sudo docker-compose up -d
-            sudo docker-compose run ballparkscraping go run main.go
+            docker-compose up -d
+            docker-compose run ballparkscraping go run main.go
       - deploy:
           name: Push application Docker image
           command: |
