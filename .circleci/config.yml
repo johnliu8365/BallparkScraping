@@ -17,8 +17,8 @@ jobs:
           command: |
             docker-compose up -d
             docker-compose run ballparkscraping go run main.go
-  deployment:
-    dockerhub:
-      branch: master
-      commands:
-        - $DOCKER_HUB_TRIGGER
+      - deploy:
+          dockerhub:
+            branch: master
+            commands:
+              - $DOCKER_HUB_TRIGGER
