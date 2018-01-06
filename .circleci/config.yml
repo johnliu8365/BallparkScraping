@@ -18,10 +18,7 @@ jobs:
             docker-compose up -d
             docker-compose run ballparkscraping go run main.go
       - deploy:
-          name: Push application Docker image
-          command: |
-            docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-            docker tag ballparkscraping $DOCKER_HUB_USER_ID/ballparkscraping:$CIRCLE_SHA1
-            docker tag ballparkscraping $DOCKER_HUB_USER_ID/ballparkscraping:latest
-            docker push $DOCKER_HUB_USER_ID/ballparkscraping:$CIRCLE_SHA1
-            docker push $DOCKER_HUB_USER_ID/ballparkscraping:latest
+        dockerhub:
+          branch: master
+          commands:
+            - $DOCKER_HUB_TRIGGER
