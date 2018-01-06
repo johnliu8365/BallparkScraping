@@ -9,8 +9,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker-compose up -d
-            docker-compose run ballparkscraping go run main.go
+            sudo docker-compose up -d
+            sudo docker-compose run ballparkscraping go run main.go
       - deploy:
           name: Push application Docker image
           command: |
