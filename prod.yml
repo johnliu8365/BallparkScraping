@@ -4,3 +4,8 @@ services:
     image: johnliu8365/ballparkscraping
     ports:
       - "5000:5000"
+
+  getjsonapi:
+    image: johnliu8365/getjsonapi
+    ports:
+      - "3000:5000"
